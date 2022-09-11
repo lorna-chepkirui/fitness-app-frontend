@@ -67,5 +67,4 @@ const RoutineHeader = styled.h1`
 
 const RoutineClass = styled.div`
     display: grid;
-    grid-template-columns: 1fr 2fr
-    ;
+    grid-template-columns: 1fr 2fr;`

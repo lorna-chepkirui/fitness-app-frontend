@@ -45,4 +45,5 @@ const NewButton = styled.button`
         outline: none;
         transform: scale(1.05);
     } 
-    margin-left: 5em ;
+    margin-left: 5em
+;`

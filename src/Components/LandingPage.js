@@ -54,4 +54,4 @@ const LandingHeaderContainer = styled.div`
     font-family: 'Lobster', cursive;
     color: white;
     font-size: 10em;
-    margin: .9em;
+    margin: .9em;`

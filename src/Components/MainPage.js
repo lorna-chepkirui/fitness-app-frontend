@@ -27,4 +27,4 @@ const Styleddiv = styled.div`
     min-height: 100%;
     background-size: cover;
     background-position: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;`
