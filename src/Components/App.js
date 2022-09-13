@@ -3,7 +3,7 @@ import MainPage from "./MainPage";
 import CreateRoutineForm from "./CreateRoutineForm";
 import CreateExerciseForm from "./CreateExerciseForm";
 import React, {useEffect, useState } from "react";
-import {Route, useHistory} from "react-router-dom";
+import {Route, Routes, useNavigate} from "react-router-dom";
 
 
 function App() {  
@@ -18,7 +18,7 @@ function App() {
     .then(setRoutines)
   }, [])
 
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const handleAddRoutine = (newRoutine) => {
     fetch('http://localhost:9292/routines', {
@@ -32,7 +32,7 @@ function App() {
     .then(newRoutineFromBackend => {
         const updatedRoutines =  [newRoutineFromBackend, ...routines]
         setRoutines(updatedRoutines)
-        history.push("/mainpage")
+        navigate.push("/mainpage")
     })
 }
 
@@ -48,7 +48,7 @@ const handleAddExercise = (newExercise) => {
   .then(newExerciseFromBackend => {
     const updatedExercises =  [newExerciseFromBackend, ...exercises]
     setExercise(updatedExercises)
-    history.push("/mainpage")
+    navigate.push("/mainpage")
   })
 }
 
@@ -64,20 +64,20 @@ const handleDelete = (id) => {
 }
 
   return (
-    <>
-      <Route exact path = "/">
-        <LandingPage />
-      </Route>
-      <Route exact path = "/mainpage">
-        <MainPage routines={routines} handleDelete={handleDelete}/>
-      </Route>
-      <Route exact path= "/newexercise">
-        <CreateExerciseForm handleAddExercise={handleAddExercise}/>
-      </Route>
-      <Route exact path= "/newroutine">
-        <CreateRoutineForm handleAddRoutine={handleAddRoutine}/>    
-      </Route>
+
+      <>
+  <Routes>
+      <Route exact path = "/" element={<LandingPage/>} />
+      <Route  exact path = "/mainpage" element=
+        {<MainPage routines={routines} handleDelete={handleDelete}/>} />
+      <Route exact path= "/newexercise" element=
+        {<CreateExerciseForm handleAddExercise={handleAddExercise}/>} />
+      <Route exact path= "/newroutine" element =
+        {<CreateRoutineForm handleAddRoutine={handleAddRoutine}/>} />   
+
+    </Routes>
     </>
+
   );
 }
 

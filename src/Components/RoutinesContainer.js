@@ -7,7 +7,7 @@ function RoutinesContainer ({routines,handleDelete}) {
 
     const [routineExercises, setRoutineExercises] = useState([])
     const [routineImage, setRoutineImage] = useState([])
-    const [clicked, setClicked] = useState(false)
+    
 
     const displayDetails = (routineExercises) => {
         setRoutineExercises(routineExercises)
@@ -16,9 +16,7 @@ function RoutinesContainer ({routines,handleDelete}) {
     const displayRoutineImage = (routineImage) => {
         setRoutineImage(routineImage)
     }
-    const isTrue = (clicked) => {
-        setClicked(clicked => !clicked)
-    }
+    
     return (
         <>
         <RoutineHeader>Routine List:</RoutineHeader>
@@ -31,7 +29,7 @@ function RoutinesContainer ({routines,handleDelete}) {
                 handleDelete={handleDelete}
                 displayDetails={displayDetails}
                 displayRoutineImage={displayRoutineImage}
-                isTrue={isTrue}
+               
                 />)}
         </GridLayout>
             <DisplayDetails routineImage={routineImage} routineExercises={routineExercises}/>
